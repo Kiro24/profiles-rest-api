@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
+from profiles_api.models import ProfileFeedItem
+
+
 class HelloSerializer(serializers.Serializer):
     """Acts as django forms to handle validation of python/JSON data accross api"""
     name = serializers.CharField(max_length=10)
@@ -30,3 +33,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
 
         return user
+
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProfileFeedItem
+        fields = ('id', 'user_profile', 'status_text', 'created_on')
+        extra_kwargs = {
+            'user_profile': {'read_only': True}
+        }

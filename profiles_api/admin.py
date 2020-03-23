@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import UserProfile
+from .models import UserProfile, ProfileFeedItem
 
 
 # class AddUserForm(forms.ModelForm):
@@ -86,3 +86,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(UserProfile)
+admin.site.register(ProfileFeedItem)
