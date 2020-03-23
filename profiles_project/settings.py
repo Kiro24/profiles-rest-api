@@ -103,6 +103,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'profiles_api.serializers.UserProfileSerializer',
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -124,3 +128,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+ACCOUNT_UNIQUE_EMAIL = True
